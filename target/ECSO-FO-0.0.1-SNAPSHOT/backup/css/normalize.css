@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,200'); /* font-family: 'Source Sans Pro', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700'); /* font-family: 'Merriweather', serif; */
+
+
+html, body, h1, h2, h3, h4, h5, h6, ol, ul, li, * {
+    margin: 0;
+    padding: 0;
+}
+
+
+ul,li {
+    list-style: none;
+}
+
+form, div, section, footer, header, a, span, p {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+button:focus, button:active, input:active, input:focus, textarea:focus, select {
+    outline: none;
+}
+
+input, select, button {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.clearfix:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
