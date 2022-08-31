@@ -312,7 +312,7 @@ public static final String FONT = "ARIALUNI.TTF";
         Font TIME_ROMAN = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
         Font font1 = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD);
         TIME_ROMAN = FontFactory.getFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-        preface.add(new Paragraph("旺衣橱 ValueSource Enterprise Receipt", TIME_ROMAN));
+        preface.add(new Paragraph("Receipt", TIME_ROMAN));
         
         creteEmptyLine(preface, 1);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");

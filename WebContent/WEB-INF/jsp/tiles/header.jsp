@@ -5,7 +5,7 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/viewCustomerReport">晓蕙报告系统</a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/viewCustomerReport">报告系统</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,7 +17,7 @@
                 </ul>
 
                 <ul class="nav navbar-right navbar-top-links">
-                    
+                    <li><a href="${pageContext.request.contextPath}/logout"></i> Logout</a></li>
                 </ul>
                 <!-- /.navbar-top-links -->
 

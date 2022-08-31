@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery-ui.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery-ui.structure.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery-ui.theme.css">
-        <link href="${pageContext.request.contextPath}/css/style_login.css" rel="stylesheet" type="text/css" />
+        <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
         <script src="${pageContext.request.contextPath}/js/modernizr.min.js"></script>
          <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery-ui-1.css">
   <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>

@@ -119,7 +119,9 @@
         <put-attribute name="title" value="Hello Spring MVC" />  
         <put-attribute name="body" value="/WEB-INF/jsp/shop/viewItemReportAnalysis.jsp" /> 
     </definition>
-
+    <definition name="login" template="/WEB-INF/jsp/login.jsp">
+        <put-attribute name="title" value="Hello Spring MVC" />
+    </definition>
 <!--    <definition name="chart" extends="base.definition">  
         <put-attribute name="title" value="Hello Spring MVC" />  
         <put-attribute name="body" value="/WEB-INF/jsp/shop/chart.jsp" /> 

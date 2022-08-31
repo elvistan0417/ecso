@@ -8,15 +8,18 @@
  
  
  <http use-expressions="true">
-  <intercept-url pattern="/*" access="permitAll" />
-  <intercept-url pattern="/css/**" access="permitAll" />
-  <intercept-url pattern="/images/**" access="permitAll" />
-  <intercept-url pattern="/js/**" access="permitAll" />
-  <intercept-url pattern="/fonts/**" access="permitAll" />
-  
-  <intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
+     <intercept-url pattern="/css/**" access="permitAll" />
+     <intercept-url pattern="/images/**" access="permitAll" />
+     <intercept-url pattern="/js/**" access="permitAll" />
+     <intercept-url pattern="/fonts/**" access="permitAll" />
+     <intercept-url pattern="/login*" access="isAnonymous()" />
+     <intercept-url pattern="/**" access="isAuthenticated()"/>
+<!--  <intercept-url pattern="/*" access="permitAll" />-->
 
-  <form-login login-page='/login' username-parameter="username"
+
+<!--  <intercept-url pattern="/**" access="permitAll" />-->
+
+  <form-login login-processing-url="/j_spring_security_check" login-page='/login' username-parameter="username"
    password-parameter="password" default-target-url="/home"
    authentication-failure-url="/login?authfailed" />
    
