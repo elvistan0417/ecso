@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,7 +46,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">管理未付款</h1>
+                        <h1 class="page-header"><fmt:message key="label.manageunpaidbill" /></h1>
                          
                     </div>
                     <!-- /.col-lg-12 -->
@@ -54,18 +57,18 @@
                         <div class="panel panel-default">
 
                             <div class="panel-heading">
-<label>目前行程 - <font color="INDIANRED">${orderTripDescription}</font></label>
+<label><fmt:message key="label.currenttrip" /> - <font color="INDIANRED">${orderTripDescription}</font></label>
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <c:if test="${result == 'Y'}"> 
                                 <div class="alert alert-success">
-                                    更新成功
+                                    <fmt:message key="label.successupdate" />
                                 </div>
                                 </c:if>
                                 <c:if test="${result == 'N'}"> 
                                 <div class="alert alert-danger">
-                                    更新失败，请联络技术人员
+                                    <fmt:message key="label.failupdate" />
                                 </div>
                                 </c:if>
                                     
@@ -74,9 +77,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>客户</th>
-                                                    <th>总货物数量</th>
-                                                    <th>总价钱</th>
+                                                    <th><fmt:message key="label.customer" /></th>
+                                                    <th><fmt:message key="label.totalstockquantity" /></th>
+                                                    <th><fmt:message key="label.totalamount" /></th>
                                                     <th></th>
                                                     <th></th>
                                                 </tr>

@@ -3,6 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +47,7 @@ word-wrap: break-word;
          <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">客户名单</h1>
+                        <h1 class="page-header"><fmt:message key="label.customerlist" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -52,18 +56,18 @@ word-wrap: break-word;
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                             <a href="<c:url value='/viewInsertCustomer'/>" class="btn btn-default">新增</a> 
+                             <a href="<c:url value='/viewInsertCustomer'/>" class="btn btn-default"><fmt:message key="label.add" /></a>
                                                          </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <c:if test="${result == 'Y'}"> 
                                 <div class="alert alert-success">
-                                    执行成功
+                                    <fmt:message key="label.successexecution" />
                                 </div>
                                 </c:if>
                                 <c:if test="${result == 'N'}"> 
                                 <div class="alert alert-danger">
-                                    执行失败，请联络技术人员
+                                    <fmt:message key="label.failexecution" />
                                 </div>
                                 </c:if>
                                 <div class="dataTable_wrapper">
@@ -71,14 +75,14 @@ word-wrap: break-word;
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>名字</th>
-                                                <th>电话号码</th>
-                                                <th>地址</th>
-                                                <th>facebook名</th>
-                                                <th>wechat名</th>
-                                                 <th>Full Name</th>
-                                               <th>创造日期</th>
-                                               <th>更新日期</th> 
+                                                <th><fmt:message key="label.name" /></th>
+                                                <th><fmt:message key="label.phonenumber" /></th>
+                                                <th><fmt:message key="label.address" /></th>
+                                                <th><fmt:message key="label.facebookname" /></th>
+                                                <th><fmt:message key="label.wechatname" /></th>
+                                                 <th><fmt:message key="label.fullname" /></th>
+                                               <th><fmt:message key="label.creationdate" /></th>
+                                               <th><fmt:message key="label.updatedate" /></th>
                                                <th> </th>
                                             </tr>
                                         </thead>

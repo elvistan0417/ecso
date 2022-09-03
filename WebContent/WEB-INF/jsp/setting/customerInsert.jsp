@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -53,7 +56,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">客户新增</h1>
+                        <h1 class="page-header"><fmt:message key="label.createcustomer" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -65,7 +68,7 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                客户输入
+                                <fmt:message key="label.insertcustomerdetails" />
                             </div>
                             <div class="panel-body">
                                 <div class="row">
@@ -76,12 +79,12 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>名字</th>
-                                                        <th>电话号码</th>
-                                                        <th>地址</th>
-                                                        <th>facebook名</th>
-                                                        <th>wechat名</th>
-                                                        <th>Posting Full Name</th>
+                                                        <th><fmt:message key="label.name" /></th>
+                                                        <th><fmt:message key="label.phonenumber" />th>
+                                                        <th><fmt:message key="label.address" /></th>
+                                                        <th><fmt:message key="label.facebookname" /></th>
+                                                        <th><fmt:message key="label.wechatname" /></th>
+                                                        <th><fmt:message key="label.fullname" /></th>
 
 
                                                     </tr>
@@ -91,18 +94,18 @@
                                                 <tbody>
                                                     <tr id="tr1">       
                                                         <td>1</td>
-                                                        <td><form:input path="contactDetailsList[0].customerName" class="form-control" placeholder="名字"/> </td>
-                                                        <td><form:input path="contactDetailsList[0].customerPhone" class="form-control" placeholder="电话号码"/> </td>
-                                                        <td><form:input path="contactDetailsList[0].customerAddress" class="form-control" placeholder="地址"/> </td>
-                                                        <td><form:input path="contactDetailsList[0].fbName" class="form-control" placeholder="facebook名"/> </td>
-                                                        <td><form:input path="contactDetailsList[0].weChatName" class="form-control" placeholder="wechat名"/> </td>
+                                                        <td><form:input path="contactDetailsList[0].customerName" class="form-control" placeholder="name"/> </td>
+                                                        <td><form:input path="contactDetailsList[0].customerPhone" class="form-control" placeholder="phone number"/> </td>
+                                                        <td><form:input path="contactDetailsList[0].customerAddress" class="form-control" placeholder="address"/> </td>
+                                                        <td><form:input path="contactDetailsList[0].fbName" class="form-control" placeholder="facebook name"/> </td>
+                                                        <td><form:input path="contactDetailsList[0].weChatName" class="form-control" placeholder="wechat name"/> </td>
                                                         <td><form:input path="contactDetailsList[0].customerFullName" class="form-control" placeholder="Posting Full Name"/> </td>
 
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <button type="button" class="btn btn-default" onclick="add()">增加选择 （+）</button>
-                                            <button type="button" class="btn btn-default" onclick="deleterow()">删除 （-）</button> 
+                                            <button type="button" class="btn btn-default" onclick="add()"><fmt:message key="label.add" /> （+）</button>
+                                            <button type="button" class="btn btn-default" onclick="deleterow()"><fmt:message key="label.delete" /> （-）</button>
                                             <input type="submit" class="btn btn-default" value="Submit" />    
                                         </div>
 

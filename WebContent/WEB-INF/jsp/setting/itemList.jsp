@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +20,14 @@
          <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">货物种类</h1>
+                        <h1 class="page-header"><fmt:message key="label.itemcategory" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
              <div class="col-lg-12">
                  
                    <div class="form-group">
-                                                <label>行程表</label>
+                                                <label><fmt:message key="label.triplist" /></label>
                                                 <select class="form-control" onchange="location = this.value;" >
                                                      <c:forEach var="orderTripList" items="${orderTripList}" varStatus = "orderTripListLoop"> 
                                                          
@@ -39,8 +42,8 @@
                                             </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                货物种类
-                                <a href="<c:url value='/viewInsertItemCategory?orderTripID=${choosenOrderID}'/>" class="btn btn-default">新增</a> 
+                                <fmt:message key="label.itemcategory" />
+                                <a href="<c:url value='/viewInsertItemCategory?orderTripID=${choosenOrderID}'/>" class="btn btn-default"><fmt:message key="label.add" /></a>
                             </div>
                             
                             <!-- /.panel-heading -->
@@ -50,9 +53,9 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>货物种类</th>
-                                                <th>创造时间</th>
-                                                <th>更新时间</th>
+                                                <th><fmt:message key="label.itemcategory" /></th>
+                                                <th><fmt:message key="label.creationdate" /></th>
+                                                <th><fmt:message key="label.updatedate" /></th>
                                                  <th></th>
               
                                             </tr>
@@ -64,7 +67,7 @@
                                                 <td>${itemCategoryObjectList.itemCategoryName}</td>
                                                 <td>${itemCategoryObjectList.itemCategoryCreateDate}</td>
                                                 <td>${itemCategoryObjectList.itemCategoryUpdateDate}</td>
-                                                <td><a href="<c:url value='/viewItemCategoryDetail?itemCategoryID=${itemCategoryObjectList.itemCategoryID}'/>" class="btn btn-default">详情</a> <td>
+                                                <td><a href="<c:url value='/viewItemCategoryDetail?itemCategoryID=${itemCategoryObjectList.itemCategoryID}'/>" class="btn btn-default"><fmt:message key="label.details" /></a> <td>
                                                 
                                             </tr>
                                             

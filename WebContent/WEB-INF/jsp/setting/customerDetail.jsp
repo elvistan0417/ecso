@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,14 +20,14 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">客户详情</h1>
+                        <h1 class="page-header"><fmt:message key="label.customerdetail" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                         客户
+                         <fmt:message key="label.customer" />
                     <a href="<c:url value='/viewCustomerUpdate?customerID=${contactDetailsObject.customerID}'/>" class="btn btn-default">更新</a>
                     <a href="<c:url value='/deleteCustomer?customerID=${contactDetailsObject.customerID}'/>" class="btn btn-default" onclick="return confirm('确定删除?')">删除</a>
                         </div>
@@ -33,12 +36,12 @@
                         <div class="panel-body">
                                 <c:if test="${result == 'Y'}"> 
                                 <div class="alert alert-success">
-                                    更新成功
+                                    <fmt:message key="label.successupdate" />
                                 </div>
                                 </c:if>
                                 <c:if test="${result == 'N'}"> 
                                 <div class="alert alert-danger">
-                                    更新失败，请联络技术人员
+                                    <fmt:message key="label.failupdate" />
                                 </div>
                                 </c:if>
                             <div class="row">
@@ -46,20 +49,20 @@
                               
 
                                         <div class="form-group">
-                                            <label>名字</label>
+                                            <label><fmt:message key="label.name" /></label>
                                             <p class="form-control-static">${contactDetailsObject.customerID} - ${contactDetailsObject.customerName}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>电话号码</label>
+                                            <label><fmt:message key="label.phonenumber" /></label>
                                             <p class="form-control-static">${contactDetailsObject.customerPhone}</p>
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label>facebook名</label>
+                                            <label><fmt:message key="label.facebookname" /></label>
                                             <p class="form-control-static">${contactDetailsObject.fbName}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>wechat名</label>
+                                            <label><fmt:message key="label.wechatname" /></label>
                                             <p class="form-control-static">${contactDetailsObject.weChatName}</p>
                                         </div>
                                    </div>
@@ -67,19 +70,19 @@
                                  <div class="col-lg-6">
                          
                                         <div class="form-group">
-                                            <label>创造日期</label>
+                                            <label><fmt:message key="label.creationdate" /></label>
                                             <p class="form-control-static">${contactDetailsObject.createDate}</p>
                                         </div>
                                           <div class="form-group">
-                                            <label>更新日期</label>
+                                            <label><fmt:message key="label.updatedate" /></label>
                                             <p class="form-control-static">${contactDetailsObject.updateDate}</p>
                                         </div>
                                        <div class="form-group">
-                                            <label>地址</label>
+                                            <label><fmt:message key="label.address" /></label>
                                             <p class="form-control-static">${contactDetailsObject.customerAddress}</p>
                                         </div>
                                        <div class="form-group">
-                                            <label>Posting Full Name</label>
+                                            <label><fmt:message key="label.fullname" /></label>
                                             <p class="form-control-static">${contactDetailsObject.customerFullName}</p>
                                         </div>
                                 </div>
@@ -91,14 +94,14 @@
                 </div>
 <div class="row">
                     <div class="col-lg-12">
-                      <h4 class="page-header">账单概要</h4>
+                      <h4 class="page-header"><fmt:message key="label.billsummary" /></h4>
                
      
-                        <label>目前行程 - <font color="INDIANRED">${currentTripDescription}</font></label>
+                        <label><fmt:message key="label.currenttrip" /> - <font color="INDIANRED">${currentTripDescription}</font></label>
                         <div class="panel panel-default">
                     
                             <div class="panel-heading">
-                                <label>未付款账单</label>
+                                <label><fmt:message key="label.unpaidbill" /></label>
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -109,8 +112,8 @@
                                             <thead>
                                                 <tr>
 
-                                                    <th>总货物数量</th>
-                                                    <th>总价钱</th>
+                                                    <th><fmt:message key="label.totalstockquantity" /></th>
+                                                    <th><fmt:message key="label.totalamount" /></th>
                                                     <th></th>
                                                     <th></th>
                                                 </tr>
@@ -147,7 +150,7 @@
 <div class="panel panel-default">
 
                             <div class="panel-heading">
-                                <label>已付款账单</label>
+                                <label><fmt:message key="label.paidbill" /></label>
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -158,8 +161,8 @@
                                             <thead>
                                                 <tr>
 
-                                                    <th>总货物数量</th>
-                                                    <th>总价钱</th>
+                                                    <th><fmt:message key="label.totalstockquantity" /></th>
+                                                    <th><fmt:message key="label.totalamount" /></th>
                                                     <th></th>
                                                     <th></th>
                                                 </tr>
@@ -176,7 +179,7 @@
                                                         <td>${paidSaleOrderObjectList.totalOrderItemQuantity}</td>
                                                         <td>${paidSaleOrderObjectList.totalOrderItemPrice}</td>
                                                         
-                                                        <td><a href="<c:url value='/viewCustomerDetailPaidOrderDetail?customerID=${paidSaleOrderObjectList.customerID}'/>" class="btn btn-default">详情</a> </td>
+                                                        <td><a href="<c:url value='/viewCustomerDetailPaidOrderDetail?customerID=${paidSaleOrderObjectList.customerID}'/>" class="btn btn-default"><fmt:message key="label.details" /></a> </td>
                                                         <td></td>
                                                     </tr>
 

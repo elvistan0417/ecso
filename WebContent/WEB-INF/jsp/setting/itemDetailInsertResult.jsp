@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,7 +35,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">货物资料库</h1>
+                        <h1 class="page-header"><fmt:message key="label.itemdetail" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -40,25 +43,25 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                货物
+                                <fmt:message key="label.item" />
                             </div>
                             <div class="panel-body">
                                                                 <c:if test="${result == 'Y'}"> 
                                 <div class="alert alert-success">
-                                    执行成功
+                                    <fmt:message key="label.successexecution" />
                                 </div>
                                 </c:if>
                                 <c:if test="${result == 'N'}"> 
                                 <div class="alert alert-danger">
-                                    执行失败，请联络技术人员
+                                    <fmt:message key="label.failexecution" />
                                 </div>
                                 </c:if>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="panel panel-default">
                         <div class="panel-heading">
-                             <a href="<c:url value='/viewInsertItem?itemCategoryID=${choosenItemCategoryID}'/>" class="btn btn-default">新增</a> 
-                             <a href="<c:url value='/viewItemDetailUpdate?itemCategoryID=${choosenItemCategoryID}'/>" class="btn btn-default">更新</a> 
+                             <a href="<c:url value='/viewInsertItem?itemCategoryID=${choosenItemCategoryID}'/>" class="btn btn-default"><fmt:message key="label.create" /></a>
+                             <a href="<c:url value='/viewItemDetailUpdate?itemCategoryID=${choosenItemCategoryID}'/>" class="btn btn-default"><fmt:message key="label.update" /></a>
                             </div>
                                             <!-- /.panel-heading -->
                                             <div class="panel-body">
@@ -67,11 +70,11 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
-                                                                <th>货物代号</th>
-                                                                <th>货物名称</th>
-                                                                <th>货物价钱</th>
-                                                                <th>创造日期</th>
-                                                                <th>更新日期</th>
+                                                                <th><fmt:message key="label.itemcode" /></th>
+                                                                <th><fmt:message key="label.itemname" /></th>
+                                                                <th><fmt:message key="label.itemprice" /></th>
+                                                                <th><fmt:message key="label.creationdate" /></th>
+                                                                <th><fmt:message key="label.updatedate" /></th>
                                                                 
                                                                 <th> </th>
                                                             </tr>

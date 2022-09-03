@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,10 +47,10 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <c:if test="${isPayFlag == 'N'}">  
-                        <h1 class="page-header">客户未付款详情</h1>
+                        <h1 class="page-header"><fmt:message key="label.paidcustomerdetail" /></h1>
                         </c:if>
                         <c:if test="${isPayFlag == 'Y'}">  
-                        <h1 class="page-header">客户已付款详情</h1>
+                        <h1 class="page-header"><fmt:message key="label.unpaidcustomerdetail" /></h1>
                         </c:if>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -55,16 +58,16 @@
                 
 <div class="row">
                     <div class="col-lg-12">
-                      <label>目前行程 - <font color="INDIANRED">${currentTripDescription}</font></label>
+                      <label><fmt:message key="label.currenttrip" /> - <font color="INDIANRED">${currentTripDescription}</font></label>
             
                         <div class="panel panel-default">
 
                             <div class="panel-heading">
                                  <c:if test="${isPayFlag == 'N'}">   
-                                <label>未付款账单</label>
+                                <label><fmt:message key="label.unpaidbill" /></label>
                                  </c:if>
                                  <c:if test="${isPayFlag == 'Y'}">   
-                                <label>已付款账单</label>
+                                <label><fmt:message key="label.paidbill" /></label>
                                  </c:if>
                             </div>
                             <!-- /.panel-heading -->
@@ -74,11 +77,11 @@
                               
 
                                         <div class="form-group">
-                                            <label>客户名字</label>
+                                            <label><fmt:message key="label.customername" /></label>
                                             <p class="form-control-static">${contactDetailsObject.customerName}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>电话号码</label>
+                                            <label><fmt:message key="label.phonenumber" /></label>
                                             <p class="form-control-static">${contactDetailsObject.customerPhone}</p>
                                         </div>
   
@@ -87,22 +90,22 @@
                               
                                  <div class="col-lg-4">
                                 <div class="form-group">
-                                            <label>wechat名</label>
+                                            <label><fmt:message key="label.wechatname" /></label>
                                             <p class="form-control-static">${contactDetailsObject.weChatName}</p>
                                         </div>
                                        <div class="form-group">
-                                            <label>地址</label>
+                                            <label><fmt:message key="label.address" /></label>
                                             <p class="form-control-static">${contactDetailsObject.customerAddress}</p>
                                         </div>
                                 </div>
                                         <div class="col-lg-4">
                                          
                                         <div class="form-group">
-                                            <label>facebook名</label>
+                                            <label><fmt:message key="label.facebookname" /></label>
                                             <p class="form-control-static">${contactDetailsObject.fbName}</p>
                                         </div>
                                        <div class="form-group">
-                                            <label>Posting Full Name</label>
+                                            <label><fmt:message key="label.fullname" /></label>
                                             <p class="form-control-static">${contactDetailsObject.customerFullName}</p>
                                         </div>
                                 </div>
@@ -113,8 +116,8 @@
                                             <thead>
                                                 <tr>
 
-                                                    <th>总货物数量</th>
-                                                    <th>总价钱</th>
+                                                    <th><fmt:message key="label.totalstockquantity" /></th>
+                                                    <th><fmt:message key="label.totalamount" /></th>
                                                     <th></th>
                                                
                                                 </tr>
@@ -154,7 +157,7 @@
                                    <form:hidden path="customerID" /> 
                                    Postage
                                    <form:input path="postPay" size="5" required="required"  pattern= "[0-99999]+(.[0-99999]{0,2})?$"/>
-                                    <button type="submit" class="btn btn-default">下载收据</button> 
+                                    <button type="submit" class="btn btn-default"><fmt:message key="label.downloadreceipt" /></button>
                                 </form:form>  
                                      </c:if> 
                               <c:if test="${isPayFlag == 'N'}">  
@@ -172,7 +175,7 @@
                                    <form:input path="remarks" size="100"/>
                                    <br>
                                    <br>
-                                   <button type="submit" class="btn btn-default">下载收据</button> 
+                                   <button type="submit" class="btn btn-default"><fmt:message key="label.downloadreceipt" /></button>
                                 </form:form>  
                                      </c:if> 
                                     </div>
@@ -187,17 +190,17 @@
 
                             <div class="panel-heading">
                                 <c:if test="${isPayFlag == 'N'}">  
-                                <label>未付款账单详情</label>
+                                <label><fmt:message key="label.paidbilldetail" /></label>
                                 </c:if>
                                 <c:if test="${isPayFlag == 'Y'}">  
-                                    <label>已付款账单详情</label>
+                                    <label><fmt:message key="label.unpaidbilldetail" /></label>
                                 </c:if>
                                     
                                 <c:if test="${isPayFlag == 'N'}">  
-                                <a href="<c:url value='/updateUnPayOrderSaleList?customerID=${customerID}'/>" class="btn btn-default"">更新</a> 
+                                <a href="<c:url value='/updateUnPayOrderSaleList?customerID=${customerID}'/>" class="btn btn-default"><fmt:message key="label.update" /></a>
                                 </c:if>
                                 <c:if test="${isPayFlag == 'Y'}">  
-                                     <a href="<c:url value='/updatePaidOrderSaleList?customerID=${customerID}'/>" class="btn btn-default"">更新</a> 
+                                     <a href="<c:url value='/updatePaidOrderSaleList?customerID=${customerID}'/>" class="btn btn-default"><fmt:message key="label.update" /></a>
                                 </c:if>
 
                             </div>
@@ -210,14 +213,14 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>客户</th>
-                                                    <th>货物</th>
-                                                    <th>货物价钱</th>
-                                                    <th>货物选择</th>
-                                                    <th>选择备注</th>
-                                                    <th>数量</th>
-                                                    <th>总价钱</th>
-                                                    <th>备注</th>
+                                                    <th><fmt:message key="label.customer" />客户</th>
+                                                    <th><fmt:message key="label.item" />货物</th>
+                                                    <th><fmt:message key="label.itemprice" />货物价钱</th>
+                                                    <th><fmt:message key="label.itemoption" />货物选择</th>
+                                                    <th><fmt:message key="label.optionremark" />选择备注</th>
+                                                    <th><fmt:message key="label.quantity" />数量</th>
+                                                    <th><fmt:message key="label.totalamount" />总价钱</th>
+                                                    <th><fmt:message key="label.remarks" />备注</th>
 
                                                 </tr>
                                             </thead>

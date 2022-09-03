@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +20,7 @@
          <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">行程表</h1>
+                        <h1 class="page-header"><fmt:message key="label.triplist" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -30,17 +33,17 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                行程输入
+                                <fmt:message key="label.inserttrip" />
                             </div>
                             <div class="panel-body">
                                 <c:if test="${result == 'Y'}"> 
                                 <div class="alert alert-success">
-                                    执行成功
+                                    <fmt:message key="label.successexecution" />
                                 </div>
                                 </c:if>
                                 <c:if test="${result == 'N'}"> 
                                 <div class="alert alert-danger">
-                                    执行失败，请联络技术人员
+                                    <fmt:message key="label.failexecution" />
                                 </div>
                                 </c:if>
                                 <div class="row">
@@ -48,7 +51,7 @@
         
                         <form:form method="POST" action="insertOrderTrip" modelAttribute="saleOrderForm" role="form">
 				 <div class="form-group">
-                                      <label>行程描述</label>
+                                      <label><fmt:message key="label.tripdescription" /></label>
                                <form:input path="orderTripDescription"  class="form-control" required="required"/>
                                 <p class="help-block">Example ：Bangkok_20180619</p>
                           <input type="submit" class="btn btn-default" value="Submit" />
@@ -72,7 +75,7 @@
              <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                行程表记录
+                                <fmt:message key="label.triphistory" />
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -81,11 +84,11 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>行程描述</th>
+                                                <th><fmt:message key="label.tripdescription" /></th>
                                                 
-                                                <th>创造时间</th>
-                                                <th>更新时间</th>
-                                                <th>目前行程</th>
+                                                <th><fmt:message key="label.creationdate" /></th>
+                                                <th><fmt:message key="label.updatedate" /></th>
+                                                <th><fmt:message key="label.currenttrip" /></th>
                                                  <th></th>
                                                  <th></th>
                                             </tr>
@@ -98,15 +101,15 @@
                                                 <td>${orderTripList.orderTripCreatedDate}</td>
                                                 <td>${orderTripList.orderTripUpdatedDate}</td>
                                                 <td>${orderTripList.orderTripCurrentFlag}</td>
-                                                <td><a href="<c:url value='/viewUpdateOrderTrip?orderTripID=${orderTripList.orderTripID}'/>" class="btn btn-default">更新</a> </td>
+                                                <td><a href="<c:url value='/viewUpdateOrderTrip?orderTripID=${orderTripList.orderTripID}'/>" class="btn btn-default"><fmt:message key="label.update" /></a> </td>
                                                  <td>
                                                      
                                                      <c:if test ="${orderTripList.orderTripCurrentFlag != 'Y'}">
-                                                     <a href="<c:url value='/deleteOrderTrip?orderTripID=${orderTripList.orderTripID}'/>" class="btn btn-default" onclick="return confirm('确定删除?')">删除</a> 
+                                                     <a href="<c:url value='/deleteOrderTrip?orderTripID=${orderTripList.orderTripID}'/>" class="btn btn-default" onclick="return confirm('Confirm Delete?')"><fmt:message key="label.delete" /></a>
                                                      </c:if>
                                                  
                                                  </td>
-                                                 <td><a href="<c:url value='/setCurrentTrip?orderTripID=${orderTripList.orderTripID}'/>" class="btn btn-default">标记为目前行程</a> </td>
+                                                 <td><a href="<c:url value='/setCurrentTrip?orderTripID=${orderTripList.orderTripID}'/>" class="btn btn-default"><fmt:message key="label.setascurrenttrip" /></a> </td>
                                             </tr>
                                             
                                             </c:forEach>

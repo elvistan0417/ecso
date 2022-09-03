@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,17 +45,17 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                下单结果
+                                <fmt:message key="label.addorderresult" />
                             </div>
                             <div class="panel-body">
                                 <c:if test="${result == 'Y'}"> 
                                 <div class="alert alert-success">
-                                    下单成功
+                                    <fmt:message key="label.addordersuccess" />
                                 </div>
                                 </c:if>
                                 <c:if test="${result == 'N'}"> 
                                 <div class="alert alert-danger">
-                                    下单失败，请联络技术人员
+                                    <fmt:message key="label.addorderfail" />
                                 </div>
                                 </c:if>
                                 <div class="row">
@@ -62,8 +65,8 @@
                                         <form role="form">
                                                 
                                             <div class="form-group">
-                                                <label>下单结果</label>
-<a href='<c:url value="viewOrderInsert"/>' class="btn btn-default">回到下单</a>
+                                                <label><fmt:message key="label.addorderresult" /></label>
+<a href='<c:url value="viewOrderInsert"/>' class="btn btn-default"><fmt:message key="label.backtoaddorder" /></a>
                                             </div>
 
                                         </form>

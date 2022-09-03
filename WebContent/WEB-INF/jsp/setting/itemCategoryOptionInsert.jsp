@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -49,7 +52,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">货物选项</h1>
+                        <h1 class="page-header"><fmt:message key="label.itemoption" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -61,7 +64,7 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                货物种类 - ${itemCategoryName}
+                                <fmt:message key="label.itemcategory" /> - ${itemCategoryName}
                             </div>
                             <div class="panel-body">
                                 <div class="row">
@@ -71,12 +74,12 @@
                                             <table id="tab_logic">
                                                 <tr id="tr1">       
                                                     
-                                                    <td>  <label>货物选项1</label> <form:input path="itemOptionList[0].itemOptionName" class="form-control" placeholder="输入"   required="required"/> </td>
+                                                    <td>  <label><fmt:message key="label.itemoption" />1</label> <form:input path="itemOptionList[0].itemOptionName" class="form-control" placeholder="insert"   required="required"/> </td>
                                                       
                                                     </tr>
                                                 </table>
-                                                <button type="button" class="btn btn-default" onclick="add()">增加选择 （+）</button>
-                                                <button type="button" class="btn btn-default" onclick="deleterow()">删除 （-）</button> 
+                                                <button type="button" class="btn btn-default" onclick="add()"><fmt:message key="label.addoption" /> （+）</button>
+                                                <button type="button" class="btn btn-default" onclick="deleterow()"><fmt:message key="label.delete" /> （-）</button>
                                         <input type="submit" class="btn btn-default" value="Submit" />    
                                         </div>
                                             <!-- /.col-lg-6 (nested) -->
