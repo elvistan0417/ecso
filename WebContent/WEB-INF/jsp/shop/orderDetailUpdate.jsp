@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,14 +92,14 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">客户详情</h1>
+                        <h1 class="page-header"><fmt:message key="label.customerdetail" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                         客户
+                         <fmt:message key="label.customer" />
                    
                         </div>
  <form:form method="POST" action="updateOrderDetail" modelAttribute="saleOrderDetail" role="form">
@@ -106,21 +109,21 @@
                                 <div class="col-lg-6">
                               
                                         <div class="form-group">
-                                            <label>客户名字</label><br>
+                                            <label><fmt:message key="label.customername" /></label><br>
                                             
                                             ${saleOrderDetail.customerName}
 
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label>货物类型</label>
+                                            <label><fmt:message key="label.itemcategory" /></label>
                                         <form:select path="itemCategory" items="${itemCategoryList}" class="form-control js-example-basic-multiple"  required="required"/>
 
                                         </div>
                                        
                                         
                                         <div class="form-group">
-                                                <label>货物</label>
+                                                <label><fmt:message key="label.item" /></label>
                                                 <form:select path="itemID" id = "itemID" class="form-control"  required="required">
 
                                                     <form:options items="${itemDetailList}"/>
@@ -136,7 +139,7 @@
 
                                             </div> 
                                         <div class="form-group">
-                                            <label>其他选择备注</label>
+                                            <label><fmt:message key="label.orderitemremarks" /></label>
                                           
                                             <form:input path="itemOtherOption"  class="form-control"/>
                                         </div>
@@ -146,22 +149,22 @@
                                  <div class="col-lg-6">
                          
                                     <div class="form-group">
-                                            <label>货物价钱</label>
+                                            <label><fmt:message key="label.itemprice" /></label>
                                            
                                             <form:input path="itemPrice"  class="form-control" onchange="myFunction2(this.value,'itemQuantity')" pattern= "[0-99999]+(.[0-99999]{0,2})?$"/>
                                         </div>
                                   <div class="form-group">
-                                            <label>数量</label>
+                                            <label><fmt:message key="label.quantity" /></label>
                                             <form:input path="itemQuantity"  class="form-control" onchange="myFunction2(this.value,'itemPrice')" pattern= "[0-99999]+(.[0-99999]{0,2})?$"/>
                                            
                                         </div>
                                        <div class="form-group">
-                                            <label>总价钱</label>
+                                            <label><fmt:message key="label.totalamount" /></label>
                                             <form:input path="totalPrice"  class="form-control" pattern= "[0-99999]+(.[0-99999]{0,2})?$"/>
                                           
                                         </div>
                                     <div class="form-group">
-                                            <label>备注</label>
+                                            <label><fmt:message key="label.remarks" /></label>
                                              <form:input path="itemRemarks"  class="form-control"/>
                                            
                                         </div>

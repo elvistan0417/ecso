@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,14 +20,14 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">客户详情</h1>
+                        <h1 class="page-header"><fmt:message key="label.customerdetail" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                         客户
+                         <fmt:message key="label.customer" />
                    
                         </div>
  <form:form method="POST" action="updateCustomer" modelAttribute="contactDetailsForm" role="form">
@@ -35,23 +38,23 @@
                               
 
                                         <div class="form-group">
-                                            <label>名字</label>
+                                            <label><fmt:message key="label.name" /></label>
                                            
                                              <form:input path="customerName"  class="form-control"/>
                                         </div>
                                         <div class="form-group">
-                                            <label>电话号码</label>
+                                            <label><fmt:message key="label.phonenumber" /></label>
                                             
                                             <form:input path="customerPhone"  class="form-control"/>
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label>facebook名</label>
+                                            <label><fmt:message key="label.facebookname" /></label>
                                            
                                             <form:input path="fbName"  class="form-control"/>
                                         </div>
                                         <div class="form-group">
-                                            <label>wechat名</label>
+                                            <label><fmt:message key="label.wechatname" /></label>
                                             
                                             <form:input path="weChatName"  class="form-control"/>
                                         </div>
@@ -60,22 +63,22 @@
                                  <div class="col-lg-6">
                          
                                         <div class="form-group">
-                                            <label>创造日期</label>
+                                            <label><fmt:message key="label.creationdate" /></label>
                                            
                                             <form:input path="createDate"  class="form-control"/>
                                         </div>
                                           <div class="form-group">
-                                            <label>更新日期</label>
+                                            <label><fmt:message key="label.updatedate" /></label>
                                          
                                              <form:input path="updateDate"  class="form-control"/>
                                         </div>
                                        <div class="form-group">
-                                            <label>地址</label>
+                                            <label><fmt:message key="label.address" /></label>
                             
                                             <form:input path="customerAddress"  class="form-control"/>
                                         </div>
                                       <div class="form-group">
-                                            <label>Posting Full Name</label>
+                                            <label><fmt:message key="label.fullname" /></label>
                             
                                             <form:input path="customerFullName"  class="form-control"/>
                                         </div>

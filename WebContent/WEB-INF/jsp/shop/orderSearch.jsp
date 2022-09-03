@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -96,7 +99,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">搜索账单</h1>
+                        <h1 class="page-header"><fmt:message key="label.searchbill" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -109,7 +112,7 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                搜索输入
+                                <fmt:message key="label.searchinput" />
                             </div>
                             <form:form method="POST" action="searchSaleOrder" modelAttribute="saleOrderForm"> 
                                 <div class="panel-body">
@@ -118,7 +121,7 @@
 
 
                                             <div class="form-group">
-                                                <label>行程</label>
+                                                <label><fmt:message key="label.trip" /></label>
                                                 <form:select path="orderTripID" id = "orderTrip" class="form-control">
 
                                                     <form:options items="${orderTripList}"/>
@@ -128,7 +131,7 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label>货物类型</label>
+                                                <label><fmt:message key="label.itemcategory" /></label>
                                                 <form:select path="itemCategory" id = "itemCategory" class="form-control">
 
                                                     <form:options items="${itemCategoryList}"/>
@@ -141,7 +144,7 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label>客户</label>
+                                                <label><fmt:message key="label.customer" /></label>
                                                 <form:select path="customerID" id = "customerID" class="form-control">
 
                                                     <form:options items="${customerList}"/>
@@ -161,7 +164,7 @@
 
 
                                             <div class="form-group">
-                                                <label>货物</label>
+                                                <label><fmt:message key="label.item" /></label>
                                                 <form:select path="itemID" id = "itemID" class="form-control">
 
                                                     <form:options items="${itemList}"/>
@@ -171,7 +174,7 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label>货物选择</label>
+                                                <label><fmt:message key="label.itemoption" /></label>
                                                 <form:select path="itemOptionID" id = "itemOptionID" class="form-control">
 
                                                     <form:options items="${itemOptionList}"/>
@@ -184,7 +187,7 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label>付款？</label>
+                                                <label><fmt:message key="label.bill" />？</label>
                                                 <form:select path="itemIsPay" id = "itemIsPay" class="form-control">
 
                                                     <form:options items="${itemIsPayList}"/>
@@ -214,7 +217,7 @@
                         <div class="panel panel-default">
 
                             <div class="panel-heading">
-                                <label>账单</label>
+                                <label><fmt:message key="label.bill1" /></label>
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -226,16 +229,16 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>客户</th>
-                                                    <th>货物</th>
-                                                    <th>货物价钱</th>
-                                                    <th>货物选择</th>
-                                                    <th>选择备注</th>
-                                                    <th>数量</th>
-                                                    <th>总价钱</th>
-                                                    <th>备注</th>
+                                                    <th><fmt:message key="label.customer" />客户</th>
+                                                    <th><fmt:message key="label.item" />货物</th>
+                                                    <th><fmt:message key="label.itemprice" />货物价钱</th>
+                                                    <th><fmt:message key="label.itemoption" />货物选择</th>
+                                                    <th><fmt:message key="label.optionremark" />选择备注</th>
+                                                    <th><fmt:message key="label.quantity" />数量</th>
+                                                    <th><fmt:message key="label.totalamount" />总价钱</th>
+                                                    <th><fmt:message key="label.remarks" />备注</th>
 
-                                                    <th>付款？</th>
+                                                    <th><fmt:message key="label.bill" />？</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

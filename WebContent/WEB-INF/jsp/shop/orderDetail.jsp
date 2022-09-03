@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +20,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">订单详情</h1>
+                        <h1 class="page-header"><fmt:message key="label.orderdetail" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -26,20 +29,20 @@
                         <div class="panel-heading">
                    订单详情
 
-                    <a href="<c:url value='/viewOrderDetailUpdate?saleOrderID=${saleOrderDetail.orderDetailID}&isPayFlag=${isPayFlag}'/>" class="btn btn-default">更新</a>
-                    <a href="<c:url value='/deleteOrderDetail?saleOrderID=${saleOrderDetail.orderDetailID}&isPayFlag=${isPayFlag}'/>" class="btn btn-default">删除</a>
+                    <a href="<c:url value='/viewOrderDetailUpdate?saleOrderID=${saleOrderDetail.orderDetailID}&isPayFlag=${isPayFlag}'/>" class="btn btn-default"><fmt:message key="label.update" /></a>
+                    <a href="<c:url value='/deleteOrderDetail?saleOrderID=${saleOrderDetail.orderDetailID}&isPayFlag=${isPayFlag}'/>" class="btn btn-default"><fmt:message key="label.delete" /></a>
                         </div>
 
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                                 <c:if test="${result == 'Y'}"> 
                                 <div class="alert alert-success">
-                                    更新成功
+                                    <fmt:message key="label.successexecution" />
                                 </div>
                                 </c:if>
                                 <c:if test="${result == 'N'}"> 
                                 <div class="alert alert-danger">
-                                    更新失败，请联络技术人员
+                                    <fmt:message key="label.failexecution" />
                                 </div>
                                 </c:if>
                             <div class="row">
@@ -47,24 +50,24 @@
                               
 
                                         <div class="form-group">
-                                            <label>客户名字</label>
+                                            <label><fmt:message key="label.customername" /></label>
                                             <p class="form-control-static">${saleOrderDetail.customerName}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>订单货物名</label>
+                                            <label><fmt:message key="label.orderitemname" /></label>
                                             <p class="form-control-static">${saleOrderDetail.itemDescription}</p>
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label>订单货物号码</label>
+                                            <label><fmt:message key="label.orderitemcode" /></label>
                                             <p class="form-control-static">${saleOrderDetail.itemCode}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>订单货物选择</label>
+                                            <label><fmt:message key="label.orderitemoption" /></label>
                                             <p class="form-control-static">${saleOrderDetail.itemOptionName}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>其他选择备注</label>
+                                            <label><fmt:message key="label.orderitemremarks" /></label>
                                             <p class="form-control-static">${saleOrderDetail.itemOtherOption}</p>
                                         </div>
                                    </div>
@@ -73,19 +76,19 @@
                          
 
                                           <div class="form-group">
-                                            <label>货物价钱</label>
+                                            <label><fmt:message key="label.itemprice" /></label>
                                             <p class="form-control-static">${saleOrderDetail.itemPrice}</p>
                                         </div>
                                   <div class="form-group">
-                                            <label>数量</label>
+                                            <label><fmt:message key="label.quantity" /></label>
                                             <p class="form-control-static">${saleOrderDetail.itemQuantity}</p>
                                         </div>
                                        <div class="form-group">
-                                            <label>总价钱</label>
+                                            <label><fmt:message key="label.totalamount" /></label>
                                             <p class="form-control-static">${saleOrderDetail.totalPrice}</p>
                                         </div>
                                     <div class="form-group">
-                                            <label>备注</label>
+                                            <label><fmt:message key="label.remarks" /></label>
                                             <p class="form-control-static">${saleOrderDetail.itemRemarks}</p>
                                         </div>
                                 </div>

@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${param.lang}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -53,7 +56,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">货物新增</h1>
+                        <h1 class="page-header"><fmt:message key="label.createitem" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -65,7 +68,7 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                货物种类 - ${itemCategoryName}
+                                <fmt:message key="label.itemcategory" /> - ${itemCategoryName}
                             </div>
                             <div class="panel-body">
                                 <div class="row">
@@ -76,9 +79,9 @@
                                           <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>货物ID</th>
-                                                <th>货物名称</th>
-                                                <th>货物价钱</th>
+                                                <th><fmt:message key="label.itemcode" /></th>
+                                                <th><fmt:message key="label.itemname" /></th>
+                                                <th><fmt:message key="label.itemprice" /></th>
                                              
               
                                             </tr>
@@ -88,15 +91,15 @@
                                         <tbody>
                                                 <tr id="tr1">       
                                                     <td>1</td>
-                                                    <td><form:input path="itemDetailList[0].itemName" class="form-control" placeholder="货物ID输入"   required="required"/> </td>
-                                                    <td><form:input path="itemDetailList[0].itemDescription" class="form-control" placeholder="货物名称输入"   required="required"/>  </td>
-                                                    <td><form:input path="itemDetailList[0].itemPrice" class="form-control" placeholder="货物价钱输入" pattern= "[0-99999]+(.[0-99999]{0,2})?$"/> </td>
+                                                    <td><form:input path="itemDetailList[0].itemName" class="form-control" placeholder="Item Code"   required="required"/> </td>
+                                                    <td><form:input path="itemDetailList[0].itemDescription" class="form-control" placeholder="Item Name"   required="required"/>  </td>
+                                                    <td><form:input path="itemDetailList[0].itemPrice" class="form-control" placeholder="Item Price" pattern= "[0-99999]+(.[0-99999]{0,2})?$"/> </td>
                                                       
                                                     </tr>
                                                     </tbody>
                                                 </table>
-                                                <button type="button" class="btn btn-default" onclick="add()">增加选择 （+）</button>
-                                                <button type="button" class="btn btn-default" onclick="deleterow()">删除 （-）</button> 
+                                                <button type="button" class="btn btn-default" onclick="add()"><fmt:message key="label.add" /> （+）</button>
+                                                <button type="button" class="btn btn-default" onclick="deleterow()"><fmt:message key="label.delete" /> （-）</button>
                                         <input type="submit" class="btn btn-default" value="Submit" />    
                                         </div>
                                             <!-- /.col-lg-6 (nested) -->
